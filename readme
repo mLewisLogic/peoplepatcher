@@ -1,0 +1,7 @@
+PeoplePatcher
+
+Connect two friends, whether they want to talk or not.
+
+This project uses the Twilio API, within a Django framework.
+
+The project will need it's settings.py file updated and filled in before it works properly.

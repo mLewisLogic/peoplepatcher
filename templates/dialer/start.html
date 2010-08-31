@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+<script type="text/javascript">
+    $(function() {
+        $("input.submit").button();
+        $("input.submit").show();
+    });
+</script>
+
+<div id="grabber" class="container_12"></div>
+<div class='clear'>&nbsp;</div> 
+
+<div id="calltoaction" class="container_12">
+    <div id="steps" class="grid_5"></div>
+    <div id="callform" class="grid_7">
+		<form method="POST" action="">
+		    <div class="callentry">
+		      <label for="id_name1">Name:</label>
+              {{ form.name1 }}
+              <strong>
+	              {% if form.number1.errors %}
+			          <em><label for="id_number1">*Number:</label></em>
+			      {% else %}
+			          <label for="id_number1">*Number:</label>
+			      {% endif %}
+		      </strong>
+              {{ form.number1 }}
+		    </div>
+		    
+		    <h1>...should patch it up with...</h1>
+            <div class="callentry">
+              <label for="id_name2">Name:</label>
+              {{ form.name2 }}
+              <strong>
+	              {% if form.number1.errors %}
+	                  <em><label for="id_number2">*Number:</label></em>
+	              {% else %}
+	                  <label for="id_number2">*Number:</label>
+	              {% endif %}
+              </strong>
+              {{ form.number2 }}
+            </div>
+		    
+            {% if form.number1.errors or form.number2.errors %}
+                <div class="formerrors">Error! Number(s) not valid!</div>
+            {% endif %}
+            
+		    <div>
+		      <input class="submit" type="submit" value="Patch!" style="display:none" />
+		      <h5>(It's 100% free!)</h5>
+		    </div>
+		    
+	        <div class="note">
+	            <p>*Sorry, US numbers only right now.</p>
+	        </div>
+	        
+            {% csrf_token %}
+		</form>
+		
+	</div>
+</div>
+{% endblock %}

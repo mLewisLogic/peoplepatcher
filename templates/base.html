@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Strict//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <title>{% block title %}People Patcher{% endblock %}</title>
+        <link rel="stylesheet" type="text/css" media="all" href="{{ MEDIA_URL }}css/blitzer/jquery-ui-1.8.4.custom.css" /> 
+        <link rel="stylesheet" type="text/css" media="all" href="{{ MEDIA_URL }}css/reset.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="{{ MEDIA_URL }}css/text.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="{{ MEDIA_URL }}css/960.css" />
+        <link rel="stylesheet" type="text/css" media="all" href="{{ MEDIA_URL }}css/screen.css" />
+        <!-- Scripts -->
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+        <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery-ui-1.8.4.custom.min.js"></script>
+        <script type="text/javascript" src="{{ MEDIA_URL }}js/global.js"></script>
+        {% block extra_head %}{% endblock %}
+    </head>
+    
+    <body>
+        <div class="container_12">
+            <!-- Nav header -->
+            <div id="nav_bg">
+                <div class="grid_4"><p id="logo"><a href="/">People Patcher</a></p></div>
+                <div class="grid_8">
+                    <ul id="nav">
+                        <li><a href="http://www.cleverkoala.com">Blog</a></li>
+                        <li><a href="mailto:mike@cleverkoala.com">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+            
+            <!-- Messages -->
+            {% block messages %}
+                {% if messages %}
+                    <ul class="messages grid_12">
+                        {% for message in messages %}
+                        <li><span>{{ message }}</span></li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endblock %}
+            
+            <!-- Content -->
+            <div id="content" class="grid_12">
+                {% block main_content %}{% endblock %}
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="clear">&nbsp;</div>
+        <div id="footer">
+	        <ul>
+	            <li><span><a href="http://www.CleverKoala.com">&copy; 2010 Clever Koala Software</a></span></li>
+	        </ul>
+        </div>
+        
+        <!-- Tracking -->
+		<script type="text/javascript">
+			var pkBaseURL = (("https:" == document.location.protocol) ? "https://piwik.cleverkoala.com/" : "http://piwik.cleverkoala.com/");
+			document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+		<script type="text/javascript">
+			try {
+				var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 3);
+				piwikTracker.trackPageView();
+				piwikTracker.enableLinkTracking();
+			} catch( err ) {}
+		</script>
+		<noscript><p><img src="http://piwik.cleverkoala.com/piwik.php?idsite=3" style="border:0" alt="" /></p></noscript>
+        
+        <!-- Extra body stuff -->
+        {% block extra_body %}{% endblock %}
+    </body>
+</html>

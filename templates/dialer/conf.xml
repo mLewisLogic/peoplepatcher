@@ -1,0 +1,6 @@
+<Response>
+    <Say>Hello {{ from_name }}, a friend thinks {% if to_name %}you should have a talk with {{ to_name }}.{% else %}there is somebody you should have a talk with.{% endif %} Please hold on while we get them for you.</Say>
+    <Dial>
+        <Conference>dialer{{ confid }}</Conference>
+    </Dial>
+</Response>
